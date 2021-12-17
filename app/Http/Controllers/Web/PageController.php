@@ -14,4 +14,8 @@ class PageController extends Controller
     public function dashboard(){
         return view('dashboard');
     } 
+
+    public function chat(){
+        return view('livewire.chat');
+    }
 }
