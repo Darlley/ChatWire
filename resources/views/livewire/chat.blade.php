@@ -8,30 +8,23 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="py-6 sm:px-10 bg-white border-b border-gray-200">
+                <div class="flex justify-between flex-row-reverse items-center py-6 px-5 md:px-10 bg-white border-b border-gray-200">
                     <div>
                         <img src="../../img/logo-growp.png" alt="">
                     </div>
                 
-                    <div class="mt-8 text-2xl">
-                        Bem vindo ao WireChat
-                    </div>
-                
-                    <div class="mt-6 text-gray-500">
-                        Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-                        to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-                        you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-                        ecosystem to be a breath of fresh air. We hope you love it.
+                    <div class="text-2xl">
+                        Conversas
                     </div>
                 </div>
 
-                <div class="sm:px-10 bg-white border-b border-gray-200">
-                    <div class="py-12">
-                        <div class="max-w-7xl mx-auto">
+                <div class="bg-white border-b border-gray-200">
+                    <div class="">
+                        <div class="">
                             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex" style="min-height: 400px; max-height: 400px;">
                     
                                 <!-- list users -->
-                                <div class="w-3/12 bg-gray-200 bg-opacity-25 border-r border-gray-200 overflow-y-scroll">
+                                <div class="w-6/12 md:w-3/12 bg-gray-200 bg-opacity-25 border-r border-gray-200 overflow-y-scroll">
                                     <ul>
                                         <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
                                             <p class="flex items-center">
@@ -84,75 +77,75 @@
                                 </div>
                     
                                 <!-- box message -->
-                                <div class="w-9/12 flex flex-col justify-between">
+                                <div class="w-6/12 md:w-9/12 flex flex-col justify-between">
                     
                                     <!-- message -->
-                                    <div class="w-full p-6 flex flex-col overflow-y-scroll">
+                                    <div class="w-full p-6 flex flex-col overflow-y-scroll text-white">
                                         <div class="w-full mb-3 text-right">
-                                            <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                            <p class="bg-teal-800 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
                                                 Olá!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3">
-                                            <p class="inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
+                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
                                                 Oi!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3 text-right">
-                                            <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                            <p class="bg-teal-800 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
                                                 Olá!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3">
-                                            <p class="inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
+                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
                                                 Oi!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3 text-right">
-                                            <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                            <p class="bg-teal-800 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
                                                 Olá!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3">
-                                            <p class="inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
+                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
                                                 Oi!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3 text-right">
-                                            <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                            <p class="bg-teal-800 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
                                                 Olá!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3">
-                                            <p class="inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
+                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
                                                 Oi!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3 text-right">
-                                            <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                            <p class="bg-teal-800 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
                                                 Olá!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3">
-                                            <p class="inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
+                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
                                                 Oi!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
@@ -160,17 +153,29 @@
                                     </div>
                     
                                     <!-- form -->
-                                    <div class="w-full bg-gray-200 bg-opacity-25 p-6 border-t border-gray-200">
-                                    <form>
-                                        <div class="flex rounded-md overflow-hidden border border-gray-300">
-                                        <input type="text" class="flex-1 px-4 py-2 text-sm focus:outline-none">
-                                        <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2">Enviar</button>
-                                        </div>
-                                    </form>
+                                    <div class="w-full flex justify-between items-center bg-opacity-25 p-2 border-t border-gray-200" style="bottom: 0px;">
+                                        <textarea
+                                        class="flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 bg-gray-200 resize-none"
+                                        rows="1"
+                                        placeholder="Message..."
+                                        style="outline: none;"
+                                        ></textarea>
+                                        <button class="mr-2 p-2" style="outline: none;">
+                                            <svg
+                                                class="svg-inline--fa text-white bg-green-400 fa-paper-plane fa-w-16 w-12 h-12 p-3 rounded-full"
+                                                aria-hidden="true"
+                                                focusable="false"
+                                                data-prefix="fas"
+                                                data-icon="paper-plane"
+                                                role="img"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 512 512"
+                                            >
+                                                <path fill="currentColor" d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/>
+                                            </svg>
+                                        </button>
                                     </div>
-                    
                                 </div>
-                    
                             </div>
                         </div>
                     </div>
