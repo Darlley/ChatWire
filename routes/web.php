@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\{
     PageController
 };
+use App\Http\Livewire\Chat;
 use App\Models\{
     User,
     Preference,
@@ -94,6 +95,6 @@ Route::get('/one-to-many', function(){
 Route::get('/', [PageController::class,'welcome'])->name('welcome');
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::get('/dashboard', [PageController::class,'dashboard'])->name('dashboard');
-    Route::get('/chat', [PageController::class,'chat'])->name('chat');
+    Route::get('/chat', Chat::class)->name('chat');
 });
 
