@@ -78,78 +78,75 @@
                     
                                 <!-- box message -->
                                 <div class="w-6/12 md:w-9/12 flex flex-col justify-between">
+                                    <div class="w-full bg-teal-600 h-16 pt-2 text-white flex justify-between shadow-md" style="top:0px; overscroll-behavior: none;">
+                                        <!-- back button -->
+                                        <router-link to="/chat">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            class="w-12 h-12 my-1 text-green-100 ml-2"
+                                        >
+                                            <path
+                                            class="text-green-100 fill-current"
+                                            d="M9.41 11H17a1 1 0 0 1 0 2H9.41l2.3 2.3a1 1 0 1 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.42 1.4L9.4 11z"
+                                            />
+                                        </svg>
+                                        </router-link>
+                                        <div class="my-3 text-green-100 font-bold text-lg tracking-wide">@rallipi</div>
+                                        <!-- 3 dots -->
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        class="icon-dots-vertical w-8 h-8 mt-2 mr-2"
+                                        >
+                                        <path
+                                            class="text-green-100 fill-current"
+                                            fill-rule="evenodd"
+                                            d="M12 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                                        />
+                                        </svg>
+                                    </div>
                     
                                     <!-- message -->
                                     <div class="w-full p-6 flex flex-col overflow-y-scroll text-white">
+                                        
                                         <div class="w-full mb-3 text-right">
-                                            <p class="bg-teal-800 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                            <p class="bg-teal-600 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
                                                 Olá!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
-                    
+                                        
                                         <div class="w-full mb-3">
-                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
+                                            <p class="bg-slate-400 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
                                                 Oi!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
+
                                         <div class="w-full mb-3 text-right">
-                                            <p class="bg-teal-800 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                                Olá!
+                                            <p class="bg-teal-600 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident excepturi veniam voluptates harum alias quae adipisci quam atque autem pariatur delectus, obcaecati inventore minima quod quo vel expedita iusto corrupti?
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3">
-                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
-                                                Oi!
+                                            <p class="bg-slate-400 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptas consectetur tempora mollitia voluptatum iure dolorem velit repellat fuga, aliquid impedit amet molestias, quo enim voluptate quia in corporis eum!
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
                                         <div class="w-full mb-3 text-right">
-                                            <p class="bg-teal-800 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                                Olá!
+                                            <p class="bg-teal-600 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                                ok
                                             </p>
                                             <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                         </div>
                     
-                                        <div class="w-full mb-3">
-                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
-                                                Oi!
-                                            </p>
-                                            <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
-                                        </div>
-                    
-                                        <div class="w-full mb-3 text-right">
-                                            <p class="bg-teal-800 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                                Olá!
-                                            </p>
-                                            <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
-                                        </div>
-                    
-                                        <div class="w-full mb-3">
-                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
-                                                Oi!
-                                            </p>
-                                            <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
-                                        </div>
-                    
-                                        <div class="w-full mb-3 text-right">
-                                            <p class="bg-teal-800 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                                Olá!
-                                            </p>
-                                            <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
-                                        </div>
-                    
-                                        <div class="w-full mb-3">
-                                            <p class="bg-slate-500 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
-                                                Oi!
-                                            </p>
-                                            <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
-                                        </div>
+                                        
                                     </div>
                     
                                     <!-- form -->
