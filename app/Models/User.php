@@ -64,6 +64,13 @@ class User extends Authenticatable
     }
 
     public function permissions(){
-        return $this->belongsToMany(Permission::class);
+        return $this->hasMany(Permission::class);
+    }
+
+    public function senders(){
+        return $this->hasMany(Message::class, 'from_user_id', 'id');
+    }
+    public function receipt(){
+        return $this->hasMany(Message::class, 'to_user_id', 'id');
     }
 }

@@ -5,7 +5,7 @@
                 <div>
                     <img src="../../img/logo-growp.png" alt="">
                 </div>
-            
+
                 <div class="text-2xl">
                     Conversas
                 </div>
@@ -15,7 +15,7 @@
                 <div class="">
                     <div class="">
                         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex" style="min-height: 400px; max-height: 400px;">
-                
+
                             <!-- list users -->
                             <div class="w-6/12 md:w-3/12 bg-gray-200 bg-opacity-25 border-r border-gray-200 overflow-y-auto list-scroll">
                                 <ul>
@@ -68,7 +68,7 @@
                                     </li>
                                 </ul>
                             </div>
-                
+
                             <!-- box message -->
                             <div class="w-6/12 md:w-9/12 flex flex-col justify-between">
                                 <div class="w-full bg-teal-600 h-16 pt-2 text-white flex justify-between shadow-md" style="top:0px; overscroll-behavior: none;">
@@ -99,49 +99,32 @@
                                     />
                                     </svg>
                                 </div>
-                
+
                                 <!-- message -->
                                 <div class="w-full p-6 flex flex-col overflow-y-auto list-scroll text-white">
-                                    
+
+                                    <!-- Mensagens no banco de dados -->
+                                    @foreach($list_messages_bd as $key => $list_message)
                                     <div class="w-full mb-3 text-right">
                                         <p class="bg-teal-600 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                            Olá!
+                                        {{$list_message['content']}}
                                         </p>
                                         <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                     </div>
-                                    
-                                    <div class="w-full mb-3">
-                                        <p class="bg-slate-400 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
-                                            Oi!
-                                        </p>
-                                        <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
-                                    </div>
-                
+                                    @endforeach
 
+                                    <!-- Ultima mensagem enviada (array) -->
+                                    @foreach($data_messages as $data_message)
                                     <div class="w-full mb-3 text-right">
-                                        <p class="bg-teal-600 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident excepturi veniam voluptates harum alias quae adipisci quam atque autem pariatur delectus, obcaecati inventore minima quod quo vel expedita iusto corrupti?
+                                        <p class="bg-teal-600 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                        {{$data_message['content']}}
                                         </p>
                                         <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                     </div>
-                
-                                    <div class="w-full mb-3">
-                                        <p class="bg-slate-400 max-w-md inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptas consectetur tempora mollitia voluptatum iure dolorem velit repellat fuga, aliquid impedit amet molestias, quo enim voluptate quia in corporis eum!
-                                        </p>
-                                        <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
-                                    </div>
-                
-                                    <div class="w-full mb-3 text-right">
-                                        <p class="bg-teal-600 max-w-md inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                            ok
-                                        </p>
-                                        <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
-                                    </div>
-                
-                                    
+                                    @endforeach
+
                                 </div>
-                
+
                                 <!-- form -->
                                 <div class="w-full flex justify-between items-center bg-opacity-25 p-2 border-t border-gray-200" style="bottom: 0px;">
                                     <textarea
@@ -151,9 +134,9 @@
                                     style="outline: none;"
                                     wire:model="message"
                                     ></textarea>
-                                    <button 
+                                    <button
                                         class="mr-2 p-2" style="outline: none;"
-                                        wire:click="sendMessage"    
+                                        wire:click="sendMessage"
                                     >
                                         <svg
                                             class="svg-inline--fa text-white bg-green-400 fa-paper-plane fa-w-16 w-12 h-12 p-3 rounded-full"

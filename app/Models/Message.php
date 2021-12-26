@@ -14,4 +14,11 @@ class Message extends Model
         'to_user_id',
         'content'
     ];
+
+    public function senders(){
+        return $this->belongsTo(User::class, 'from_user_id', 'id');
+    }
+    public function receipt(){
+        return $this->belongsTo(User::class, 'to_user_id', 'id');
+    }
 }
