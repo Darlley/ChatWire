@@ -32,8 +32,7 @@
 
                             <!-- box message -->
                             <div class="w-6/12 md:w-9/12 flex flex-col justify-between">
-                                @if($chat_user || $data_messages)
-                                
+                            @if($chat_user || $data_messages)
                                 <div class="w-full bg-teal-600 h-16 pt-2 text-white flex justify-between shadow-md" style="top:0px; overscroll-behavior: none;">
                                     <!-- back button -->
                                     <svg wire:click="disassembly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="cursor-pointer w-12 h-12 my-1 text-green-100 ml-2" >
@@ -60,7 +59,7 @@
                                     <!-- Ultima mensagem enviada (array) -->
                                     @foreach($data_messages as $data_message)
                                     <div class="w-full mb-3 text-right">
-                                        <p class="bg-teal-600 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
+                                        <p class="@if($data_message['to_user_id'] == $logged_user['id']) bg-gray-200 @else bg-teal-600 @endif inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
                                         {{$data_message['content']}}
                                         </p>
                                         <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
@@ -96,9 +95,9 @@
                                         </svg>
                                     </button>
                                 </div>
-                                @else
+                            @else
                                 <img src="../../img/bg.png" class="w-full">
-                                @endif
+                            @endif
                             </div>
                         </div>
                     </div>
