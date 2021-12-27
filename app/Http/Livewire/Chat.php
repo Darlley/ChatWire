@@ -56,14 +56,19 @@ class Chat extends Component
         }
         $this->list_messages_bd = $this->chat_user;
     }
+    public function disassembly(){
+        $this->reset('to_user');
+        $this->reset('chat_user');
+        $this->reset('data_messages');
+    }
 
     public function sendMessage(){
+
         $data = [
             'from_user_id' => $this->logged_user->id,
             'to_user_id' => $this->to_user['id'],
             'content' => $this->message
         ];
-
         if($data['content']){
 
             array_push($this->data_messages, $data); // array ()
