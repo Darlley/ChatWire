@@ -16,7 +16,11 @@ class Chat extends Component
     public string $message = ''; // input
     public $list_messages_bd = []; // database
     public $data_messages = []; // array
-    public User $usuario;
+
+    public User $logged_user;
+    public $to_user = ['id'=>'', 'name'=>''];
+    public $chat_user = [];
+    public $list_users = [];
 
     public function render()
     {
@@ -24,22 +28,49 @@ class Chat extends Component
     }
 
     public function mount(User $user){
-        $this->usuario = User::with('senders.receipt')->find(Auth::id());
 
-        $this->list_messages_bd = $this->usuario->senders;
+        
+        // To User
+        $this->logged_user = User::with('senders.receipt')->find(Auth::id());
+        // $this->list_messages_bd = $this->logged_user->senders;
+        
+        // From User
+        // $this->chat_user = $user->load('profile')->toArray();
+        
+        // All Users
+        $this->list_users = User::where('id','!=',Auth::id())->get();
+    }
+
+    public function mountUser($id,$chave){
+        $this->reset('chat_user');
+        $this->reset('data_messages');
+        
+        $this->to_user = [
+            'id' => $id,
+            'name' => User::find($id)['name']
+        ];
+        foreach($this->logged_user->senders as $userChat){
+            if( $userChat['to_user_id'] == $this->list_users[$chave]['id'] ){
+                array_push($this->chat_user, $userChat);
+            }
+        }
+        $this->list_messages_bd = $this->chat_user;
     }
 
     public function sendMessage(){
         $data = [
-            'from_user_id' => $this->usuario->id,
-            'to_user_id' => 2,
+            'from_user_id' => $this->logged_user->id,
+            'to_user_id' => $this->to_user['id'],
             'content' => $this->message
         ];
 
-        array_push($this->data_messages, $data);
+        if($data['content']){
 
-        Message::create($data)->refresh();
-        // array_push($this->list_messages_array, $data_message);
-        $this->reset('message');
+            array_push($this->data_messages, $data); // array ()
+            Message::create($data); // database
+            $this->reset('message');
+
+        }
+
     }
 }

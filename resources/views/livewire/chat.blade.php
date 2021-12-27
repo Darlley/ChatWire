@@ -19,96 +19,40 @@
                             <!-- list users -->
                             <div class="w-6/12 md:w-3/12 bg-gray-200 bg-opacity-25 border-r border-gray-200 overflow-y-auto list-scroll">
                                 <ul>
-                                    <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
-                                        <p class="flex items-center">
-                                            Robson V. Leite
-                                        </p>
+                                    @foreach ($list_users as $key => $listUser)
+                                    <li wire:click="mountUser({{$listUser['id']}},{{$key}})" class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
+                                        <p class="flex items-center">{{ $listUser['name'] }}</p>
                                     </li>
-                                    <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
-                                        <p class="flex items-center">
-                                            Kaue Francisquini
-                                            <span class="ml-2 w-2 h-2 bg-blue-500 rounded-full"></span>
-                                        </p>
-                                    </li>
-                                    <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
-                                        <p class="flex items-center">
-                                            Kaue Francisquini
-                                            <span class="ml-2 w-2 h-2 bg-blue-500 rounded-full"></span>
-                                        </p>
-                                    </li>
-                                    <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
-                                        <p class="flex items-center">
-                                            Kaue Francisquini
-                                            <span class="ml-2 w-2 h-2 bg-blue-500 rounded-full"></span>
-                                        </p>
-                                    </li>
-                                    <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
-                                        <p class="flex items-center">
-                                            Kaue Francisquini
-                                            <span class="ml-2 w-2 h-2 bg-blue-500 rounded-full"></span>
-                                        </p>
-                                    </li>
-                                    <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
-                                        <p class="flex items-center">
-                                            Kaue Francisquini
-                                            <span class="ml-2 w-2 h-2 bg-blue-500 rounded-full"></span>
-                                        </p>
-                                    </li>
-                                    <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
-                                        <p class="flex items-center">
-                                            Kaue Francisquini
-                                            <span class="ml-2 w-2 h-2 bg-blue-500 rounded-full"></span>
-                                        </p>
-                                    </li>
-                                    <li class="p-6 text-lg text-gray-600 leading-7  font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
-                                        <p class="flex items-center">
-                                            Kaue Francisquini
-                                            <span class="ml-2 w-2 h-2 bg-blue-500 rounded-full"></span>
-                                        </p>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
 
                             <!-- box message -->
                             <div class="w-6/12 md:w-9/12 flex flex-col justify-between">
+                                
                                 <div class="w-full bg-teal-600 h-16 pt-2 text-white flex justify-between shadow-md" style="top:0px; overscroll-behavior: none;">
                                     <!-- back button -->
                                     <router-link to="/chat">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        class="w-12 h-12 my-1 text-green-100 ml-2"
-                                    >
-                                        <path
-                                        class="text-green-100 fill-current"
-                                        d="M9.41 11H17a1 1 0 0 1 0 2H9.41l2.3 2.3a1 1 0 1 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.42 1.4L9.4 11z"
-                                        />
-                                    </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-12 h-12 my-1 text-green-100 ml-2" >
+                                            <path class="text-green-100 fill-current" d="M9.41 11H17a1 1 0 0 1 0 2H9.41l2.3 2.3a1 1 0 1 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.42 1.4L9.4 11z"/>
+                                        </svg>
                                     </router-link>
-                                    <div class="my-3 text-green-100 font-bold text-lg tracking-wide">@rallipi</div>
+                                    <div class="my-3 text-green-100 font-bold text-lg tracking-wide">{{ $to_user['name'] }}</div>
                                     <!-- 3 dots -->
-                                    <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    class="icon-dots-vertical w-8 h-8 mt-2 mr-2"
-                                    >
-                                    <path
-                                        class="text-green-100 fill-current"
-                                        fill-rule="evenodd"
-                                        d="M12 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
-                                    />
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-dots-vertical w-8 h-8 mt-2 mr-2" >
+                                        <path class="text-green-100 fill-current" fill-rule="evenodd" d="M12 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
                                     </svg>
                                 </div>
-
+                                
                                 <!-- message -->
+                                @if($chat_user || $data_messages)
                                 <div class="w-full p-6 flex flex-col overflow-y-auto list-scroll text-white">
 
+                                    
                                     <!-- Mensagens no banco de dados -->
                                     @foreach($list_messages_bd as $key => $list_message)
                                     <div class="w-full mb-3 text-right">
-                                        <p class="bg-teal-600 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                        {{$list_message['content']}}
-                                        </p>
+                                        <p class="bg-teal-600 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">{{$list_message['content']}}</p>
                                         <span class="block mt-1 text-xs text-gray-500">21/10/2020 17:44</span>
                                     </div>
                                     @endforeach
@@ -124,7 +68,8 @@
                                     @endforeach
 
                                 </div>
-
+                                @endif
+                                
                                 <!-- form -->
                                 <div class="w-full flex justify-between items-center bg-opacity-25 p-2 border-t border-gray-200" style="bottom: 0px;">
                                     <textarea
