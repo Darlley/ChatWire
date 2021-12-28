@@ -1134,11 +1134,11 @@ select {
 .w-20 {
   width: 5rem;
 }
-.w-2 {
-  width: 0.5rem;
-}
 .w-3\/12 {
   width: 25%;
+}
+.w-2 {
+  width: 0.5rem;
 }
 .w-9\/12 {
   width: 75%;
@@ -1445,11 +1445,11 @@ select {
 .p-6 {
   padding: 1.5rem;
 }
-.p-12 {
-  padding: 3rem;
-}
 .p-3 {
   padding: 0.75rem;
+}
+.p-12 {
+  padding: 3rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -2227,6 +2227,10 @@ select {
 
   .md\:w-3\/12 {
     width: 25%;
+  }
+
+  .md\:w-6\/12 {
+    width: 50%;
   }
 
   .md\:w-9\/12 {

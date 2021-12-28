@@ -1,6 +1,7 @@
 <div class="p-6">
     <div class="max-w-7xl mx-auto">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+
             <div class="flex justify-between flex-row-reverse items-center py-6 px-5 md:px-10 bg-white border-b border-gray-200">
                 <div>
                     <img src="../../img/logo-growp.png" alt="">
@@ -12,8 +13,9 @@
             </div>
 
             <div class="bg-white border-b border-gray-200">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex" style="min-height: 400px; max-height: 400px;">
 
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex" style="min-height: 400px; max-height: 400px;">
+                    
                     <!-- list users -->
                     <div class="w-3/12 md:w-3/12 bg-gray-200 bg-opacity-25 border-r border-gray-200 overflow-y-auto list-scroll">
                         <ul>
@@ -73,7 +75,7 @@
                             rows="1"
                             placeholder="Message..."
                             style="outline: none;"
-                            wire:model="message"
+                            wire:model.defer="message"
                             ></textarea>
                             <button
                                 class="mr-2 p-2" style="outline: none;"
@@ -123,8 +125,11 @@
                         </div>
                         @endif
                     </div>
+
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>

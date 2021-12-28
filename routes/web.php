@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\{
     PageController
 };
-use App\Http\Livewire\Chat;
+use App\Http\Livewire\{
+    Chat,
+    Chatalpine
+};
 use App\Models\{
     User,
     Preference,
@@ -25,7 +28,7 @@ use App\Models\{
 |
 */
 
-Route::get('/many-to-many', function(){
+/* Route::get('/many-to-many', function(){
 
     $user = User::with('permissions')->first();
     // $permission = Permission::find(1);
@@ -90,11 +93,12 @@ Route::get('/one-to-many', function(){
     <p>Modulo: ' . $course->module[0]->name . '</p>
     <p>Aula: <a href="' . $course->module[0]->lesson[0]->video . '" target="_blank"> ' . $course->module[0]->lesson[0]->name . '</a></p>';
 });
-
+ */
 
 Route::get('/', [PageController::class,'welcome'])->name('welcome');
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::get('/dashboard', [PageController::class,'dashboard'])->name('dashboard');
     Route::get('/chat', Chat::class)->name('chat');
+    Route::get('/chat-alpine', Chatalpine::class)->name('chat-alpine');
 });
 

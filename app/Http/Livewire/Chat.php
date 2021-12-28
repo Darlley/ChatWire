@@ -8,6 +8,7 @@ use App\Models\{
     Message
 };
 use Livewire\Component;
+use App\Events\ChatStatusUpdated;
 
 class Chat extends Component
 {
@@ -80,6 +81,9 @@ class Chat extends Component
             array_push($this->data_messages, $data); // array ()
             Message::create($data); // database
             $this->reset('message');
+
+            ChatStatusUpdated::dispatch('Hello World');
+            // event(new \App\Events\ChatStatusUpdated('hello world'));
         }
     }
 }
