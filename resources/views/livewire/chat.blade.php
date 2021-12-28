@@ -31,7 +31,7 @@
                     </div>
 
                     <!-- box message -->
-                    <div class="w-9/12 md:w-6/12 flex flex-col justify-between">
+                    <div class="w-9/12 md:w-9/12 flex flex-col justify-between">
                         @if($to_user['id'] != '')
                         <div class="w-full bg-teal-600 h-16 pt-2 text-white flex justify-between shadow-md" style="top:0px; overscroll-behavior: none;">
                             <!-- back button -->

@@ -79,10 +79,12 @@ class Chat extends Component
                 'created_at' => now()
             ];
             array_push($this->data_messages, $data); // array ()
-            Message::create($data); // database
+            $create_message = Message::create($data); // database
+            
+            ChatStatusUpdated::dispatch($create_message);
+
             $this->reset('message');
 
-            ChatStatusUpdated::dispatch('Hello World');
             // event(new \App\Events\ChatStatusUpdated('hello world'));
         }
     }

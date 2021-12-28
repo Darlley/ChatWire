@@ -24,8 +24,9 @@ class Chatalpine extends Component
             'content' => $this->message
         ]);
 
-        $this->reset(message);
-
+        $this->reset('message');
+        
+        ChatStatusUpdated::dispatch($sentMessage);
     }
 
     public function mount(User $user){
@@ -40,12 +41,10 @@ class Chatalpine extends Component
             ->orderBy('id', 'asc')
             ->get();
 
-        
     }
 
     // Aula 22
     public function receivedActions(){
-        ChatStatusUpdated::dispatch($sentMessage);
     }
 
     public function render()
