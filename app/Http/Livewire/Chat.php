@@ -10,12 +10,16 @@ use App\Models\{
 use Livewire\Component;
 use App\Events\ChatStatusUpdated;
 
+use Livewire\WithFileUploads;
+
 class Chat extends Component
 {
+    use WithFileUploads;
     // public $list_messages_bd = [];
 
     public $receivedMessages;
     public string $message = ''; // input
+    public $message_file;
     public $loggedUser; // Usuário logado
     public $to_user = []; // Usuário selecionado
     public $list_users = []; // Todos os usuários
@@ -33,7 +37,8 @@ class Chat extends Component
     }
     
     public function mountUser($id,$chave){
-        
+
+        $this->reset('receivedMessages');
         $this->to_user = User::find($id)->toArray();
         
         /* Antigo
@@ -76,6 +81,23 @@ class Chat extends Component
             ChatStatusUpdated::dispatch($create_message);
             $this->reset('message');
 
+        }elseif ($this->message_file) {
+            $data = [
+                'from_user_id' => $this->loggedUser['id'],
+                'to_user_id' => $this->to_user['id'],
+                'image' => md5($this->message_file),
+                'created_at' => now()
+            ];
+
+            $create_message = Message::create($data); // database
+            ChatStatusUpdated::dispatch($create_message);
+
+            // $this->message_file->move(public_path('img/events', $this->message_file.path));
+            $this->message_file->storeAs('photos', 'public');
+            // $this->message_file->storeAs('photos','public');
+
+            $this->reset('message_file');
         }
+
     }
 }

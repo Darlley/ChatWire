@@ -12,3 +12,20 @@
 .list-scroll::-webkit-scrollbar-track {
     background: rgba(255,255,255,.1);
 }
+.input-archive-btn{
+    position: relative;
+    transition: all 1s;
+
+}
+.input-archive-btn:hover .input-archive{
+    transition: all 1s;
+    display: flex;
+}
+.input-archive{
+    transition: all 1s;
+    position: absolute;
+    top: -220px;
+    left: -220px;
+    min-width: max-content;
+    display: none;
+}

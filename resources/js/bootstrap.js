@@ -16,7 +16,3 @@ window.Echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     forceTLS: true
 });
-
-// window.Echo.channel('chats').listen('ChatStatusUpdated', event => {
-//     console.log(event);
-// });

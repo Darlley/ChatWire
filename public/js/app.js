@@ -3424,9 +3424,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   key: "5446b6749ac0b38967ca",
   cluster: "mt1",
   forceTLS: true
-}); // window.Echo.channel('chats').listen('ChatStatusUpdated', event => {
-//     console.log(event);
-// });
+});
 
 /***/ }),
 
