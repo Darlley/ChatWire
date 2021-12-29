@@ -1,24 +1,16 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("chat", (params) => {
         return {
-            list_messages_bd: params.list_messages_bd,
-            list_users: params.list_users,
-            data_messages: params.data_messages,
-            message: '',
-            
-            init() {
-                
-            },
+            receivedMessages: params.receivedMessages,
+            loggedUser: params.loggedUser,
+            to_user: params.to_user,
 
-            smoothScroll() {
-                setTimeout(() => {
-                    this.$refs.chatContainer.scroll({
-                        top: this.$refs.chatContainer.scrollHeight,
-                        behavior: 'smooth'
-                    })
-                }, 100)
+            init(){
+                window.Echo.channel('chats').listen('ChatStatusUpdated', event => {
+                    this.receivedMessages.push(event.message);
+                })
             },
-            ...params,
+            ...params
         }
     });
 });

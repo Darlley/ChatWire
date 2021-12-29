@@ -17,6 +17,6 @@ window.Echo = new Echo({
     forceTLS: true
 });
 
-window.Echo.channel('chats').listen('ChatStatusUpdated', event => {
-    console.log(event);
-});
+// window.Echo.channel('chats').listen('ChatStatusUpdated', event => {
+//     console.log(event);
+// });

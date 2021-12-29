@@ -19,8 +19,8 @@ class Chatalpine extends Component
 
     public function sendMessage(){
         $sentMessage = Message::create([
-            'from_user_id' => $this->loggedUser->id,
-            'to_user_id' => $this->chatUser->id,
+            'from_user_id' => $this->loggedUser['id'],
+            'to_user_id' => $this->chatUser['id'],
             'content' => $this->message
         ]);
 
@@ -30,16 +30,21 @@ class Chatalpine extends Component
     }
 
     public function mount(User $user){
-        $this->loggedUser = User::find(Auth::id());
+        $this->loggedUser = User::find(Auth::id())->toArray();
         
-        $this->chatUser = User::find(2);
+        if($this->loggedUser['id'] == 1){
+            $this->chatUser = User::find(2);
+        }else{
+            $this->chatUser = User::find(1);
+        }
         
         $this->receivedMessages = Message::where('from_user_id', $this->chatUser->id)
-            ->where('to_user_id', $this->loggedUser->id)
-            ->orwhere('from_user_id', $this->loggedUser->id)
+            ->where('to_user_id', $this->loggedUser['id'])
+            ->orwhere('from_user_id', $this->loggedUser['id'])
             ->where('to_user_id', $this->chatUser->id)
             ->orderBy('id', 'asc')
-            ->get();
+            ->get()
+            ->toArray();
 
     }
 
@@ -49,11 +54,7 @@ class Chatalpine extends Component
 
     public function render()
     {
-        // ChatStatusUpdated::dispatch('Hello World');
-        // event(new \App\Events\ChatStatusUpdated('hello world'));
-
         return view('livewire.chatalpine');
     }
-
 
 }

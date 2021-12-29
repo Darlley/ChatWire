@@ -12,15 +12,13 @@ use App\Events\ChatStatusUpdated;
 
 class Chat extends Component
 {
+    // public $list_messages_bd = [];
+
     public $receivedMessages;
     public string $message = ''; // input
-    public $list_messages_bd = []; // database
-    public $data_messages = []; // array
-
-    public User $logged_user;
-    public $to_user = ['id'=> '', 'name'=>''];
-    public $chat_user = [];
-    public $list_users = [];
+    public $loggedUser; // Usuário logado
+    public $to_user = []; // Usuário selecionado
+    public $list_users = []; // Todos os usuários
 
     public function render()
     {
@@ -29,43 +27,39 @@ class Chat extends Component
 
     public function mount(User $user){
 
-        // To User
-        $this->logged_user = User::with('senders.receipt')->find(Auth::id());
-        // $this->list_messages_bd = $this->logged_user->senders; 
-        // All Users
-        $this->list_users = User::where('id','!=',Auth::id())->get();
-
+        $this->loggedUser = User::with('senders.receipt')->find(Auth::id())->toArray();
+        $this->list_users = User::where('id','!=', $this->loggedUser['id'])->get()->toArray();
+        
     }
-
+    
     public function mountUser($id,$chave){
-
-        $this->reset('chat_user');
-        $this->reset('data_messages');
-        $this->reset('list_messages_bd');
-
-        $this->to_user = [
-            'id' => $id,
-            'name' => User::find($id)['name']
-        ];
-
+        
+        $this->to_user = User::find($id)->toArray();
+        
+        /* Antigo
         $teste = Message::all();
         foreach($teste as $userChat){
             if( ($userChat['from_user_id'] == Auth::id() || $userChat['to_user_id'] == Auth::id()) && ($userChat['from_user_id'] == $this->to_user['id'] || $userChat['to_user_id'] == $this->to_user['id']) ){
-                array_push($this->chat_user, $userChat);
+                array_push($this->list_messages_bd, $userChat);
             }
         }
-        $this->list_messages_bd = $this->chat_user;
+        */
 
-        //     if( $userChat['to_user_id'] == $this->list_users[$chave]['id'] ){
-        //     }
-
+        // Novo
+        $this->receivedMessages = Message::where('from_user_id', $this->to_user['id'])
+        ->where('to_user_id', $this->loggedUser['id'])
+        ->orwhere('from_user_id', $this->loggedUser['id'])
+        ->where('to_user_id', $this->to_user['id'])
+        ->orderBy('id', 'asc')
+        ->get()
+        ->toArray();
+    
     }
-
+    
     public function disassembly(){
 
         $this->reset('to_user');
-        $this->reset('chat_user');
-        $this->reset('data_messages');
+        $this->reset('receivedMessages');
 
     }
 
@@ -73,19 +67,15 @@ class Chat extends Component
 
         if($this->message != ''){
             $data = [
-                'from_user_id' => $this->logged_user->id,
+                'from_user_id' => $this->loggedUser['id'],
                 'to_user_id' => $this->to_user['id'],
                 'content' => $this->message,
                 'created_at' => now()
             ];
-            array_push($this->data_messages, $data); // array ()
             $create_message = Message::create($data); // database
-            
             ChatStatusUpdated::dispatch($create_message);
-
             $this->reset('message');
 
-            // event(new \App\Events\ChatStatusUpdated('hello world'));
         }
     }
 }

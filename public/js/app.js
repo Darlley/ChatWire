@@ -3424,10 +3424,9 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   key: "5446b6749ac0b38967ca",
   cluster: "mt1",
   forceTLS: true
-});
-window.Echo.channel('chats').listen('ChatStatusUpdated', function (event) {
-  console.log(event);
-});
+}); // window.Echo.channel('chats').listen('ChatStatusUpdated', event => {
+//     console.log(event);
+// });
 
 /***/ }),
 
@@ -3446,20 +3445,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 document.addEventListener("alpine:init", function () {
   Alpine.data("chat", function (params) {
     return _objectSpread({
-      list_messages_bd: params.list_messages_bd,
-      list_users: params.list_users,
-      data_messages: params.data_messages,
-      message: '',
-      init: function init() {},
-      smoothScroll: function smoothScroll() {
+      receivedMessages: params.receivedMessages,
+      loggedUser: params.loggedUser,
+      to_user: params.to_user,
+      init: function init() {
         var _this = this;
 
-        setTimeout(function () {
-          _this.$refs.chatContainer.scroll({
-            top: _this.$refs.chatContainer.scrollHeight,
-            behavior: 'smooth'
-          });
-        }, 100);
+        window.Echo.channel('chats').listen('ChatStatusUpdated', function (event) {
+          _this.receivedMessages.push(event.message);
+        });
       }
     }, params);
   });

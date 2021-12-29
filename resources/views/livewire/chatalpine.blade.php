@@ -1,8 +1,6 @@
 <div class="p-6">
     <div class="max-w-7xl mx-auto">
-        <div 
-            class="bg-white overflow-hidden shadow-xl sm:rounded-lg"
-        >
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
             <div class="flex justify-between flex-row-reverse items-center py-6 px-5 md:px-10 bg-white border-b border-gray-200">
                 <div>
@@ -16,7 +14,14 @@
 
             <div class="bg-white border-b border-gray-200">
 
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex" style="min-height: 400px; max-height: 400px;">
+                <div 
+                    class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex" style="min-height: 400px; max-height: 400px;"
+                    
+                    x-data="chat({
+                        receivedMessages: @entangle('receivedMessages'),
+                        loggedUser: @entangle('loggedUser')
+                    })"
+                >
                     
                     <!-- list users -->
                     <div class="w-3/12 md:w-3/12 bg-gray-200 bg-opacity-25 border-r border-gray-200 overflow-y-auto list-scroll">
@@ -48,10 +53,22 @@
                         <div class="w-full p-6 flex flex-col overflow-y-auto list-scroll text-white" x-ref="chatContainer">
 
                             <!-- Mensagens no banco de dados -->
-                            <div class="w-full mb-3 text-right ">
-                                <p class="bg-gray-300 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">oi</p>
-                                <span class="block mt-1 text-xs text-gray-500">28-12-2021 09:49</span>
-                            </div>
+                            <template x-for="(message, index) in receivedMessages">
+                                <div>
+                                    <template x-if="message.from_user_id !== loggedUser.id">
+                                        <div class="w-full mb-3">
+                                            <p class="bg-gray-300 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;" x-text="message.content"></p>
+                                            <span class="block mt-1 text-xs text-gray-500">28-12-2021 09:49</span>
+                                        </div>
+                                    </template>
+                                    <template x-if="message.from_user_id === loggedUser.id">
+                                        <div class="w-full mb-3 text-right" >
+                                            <p class="bg-teal-600 inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;" x-text="message.content"></p>
+                                            <span class="block mt-1 text-xs text-gray-500">28-12-2021 09:49</span>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
 
                         </div>
 
