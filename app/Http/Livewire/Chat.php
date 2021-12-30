@@ -11,6 +11,7 @@ use Livewire\Component;
 use App\Events\ChatStatusUpdated;
 
 use Livewire\WithFileUploads;
+use Illuminate\Http\Request;
 
 class Chat extends Component
 {
@@ -70,33 +71,45 @@ class Chat extends Component
 
     public function sendMessage(){
 
-        if($this->message != ''){
+        if($this->message != null && $this->message_file == null){
+
             $data = [
                 'from_user_id' => $this->loggedUser['id'],
                 'to_user_id' => $this->to_user['id'],
                 'content' => $this->message,
                 'created_at' => now()
             ];
+
             $create_message = Message::create($data); // database
-            ChatStatusUpdated::dispatch($create_message);
+            ChatStatusUpdated::dispatch($create_message); // pusher
+
             $this->reset('message');
 
-        }elseif ($this->message_file) {
+        }elseif ($this->message_file != null) {
+
+            $this->validate([
+                'message_file' => 'image|max:1024', // 1MB Max
+            ]);
+
+            // $file_name = $this->message_file->hashName();
+            $file_name = $this->message_file->hashName();
+            $this->message_file->storeAs('uploads', $file_name); // Local files
+            // $this->message_file->move(public_path('img\uploads'), $file_name);
+
             $data = [
                 'from_user_id' => $this->loggedUser['id'],
                 'to_user_id' => $this->to_user['id'],
-                'image' => md5($this->message_file),
-                'created_at' => now()
+                'content' => $this->message,
+                'image' => $file_name,
+                'created_at' => date("H:i")
             ];
 
-            $create_message = Message::create($data); // database
-            ChatStatusUpdated::dispatch($create_message);
+            $create_message = Message::create($data);
 
-            // $this->message_file->move(public_path('img/events', $this->message_file.path));
-            $this->message_file->storeAs('photos', 'public');
-            // $this->message_file->storeAs('photos','public');
-
+            ChatStatusUpdated::dispatch($create_message); // pusher
+            
             $this->reset('message_file');
+        
         }
 
     }

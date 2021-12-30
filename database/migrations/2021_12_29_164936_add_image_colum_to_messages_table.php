@@ -14,7 +14,7 @@ class AddImageColumToMessagesTable extends Migration
     public function up()
     {
         Schema::table('messages', function (Blueprint $table) {
-            $table->string('image')->after('content')->nullable();
+            $table->string('image')->after('content')->nullable($value = true);
         });
     }
 
