@@ -3446,6 +3446,7 @@ document.addEventListener("alpine:init", function () {
       receivedMessages: params.receivedMessages,
       loggedUser: params.loggedUser,
       to_user: params.to_user,
+      message_file: params.message_file,
       init: function init() {
         var _this = this;
 

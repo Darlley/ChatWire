@@ -20,7 +20,7 @@ class Chat extends Component
 
     public $receivedMessages;
     public string $message = ''; // input
-    public $message_file;
+    public $message_file; // Imagem
     public $loggedUser; // Usuário logado
     public $to_user = []; // Usuário selecionado
     public $list_users = []; // Todos os usuários
@@ -107,9 +107,9 @@ class Chat extends Component
             $create_message = Message::create($data);
 
             ChatStatusUpdated::dispatch($create_message); // pusher
+
+            $this->reset('message');
             
-            $this->reset('message_file');
-        
         }
 
     }

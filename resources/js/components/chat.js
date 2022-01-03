@@ -4,6 +4,7 @@ document.addEventListener("alpine:init", () => {
             receivedMessages: params.receivedMessages,
             loggedUser: params.loggedUser,
             to_user: params.to_user,
+            message_file: params.message_file,
 
             init(){
                 window.Echo.channel('chats').listen('ChatStatusUpdated', event => {

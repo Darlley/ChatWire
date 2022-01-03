@@ -1,7 +1,8 @@
 <div class="p-6" x-data="chat({
         receivedMessages: @entangle('receivedMessages'),
         loggedUser: @entangle('loggedUser'),
-        to_user: @entangle('to_user')
+        to_user: @entangle('to_user'),
+        'message_file': @entangle('message_file'),
     })">
     <div class="mx-auto max-w-7xl">
         <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
@@ -66,52 +67,52 @@
                                     <template x-for="(message, index) in receivedMessages">
                                         <div>
                                             <template x-if="message.from_user_id !== loggedUser.id">
-                                                <div class="inline-block w-full mb-3">
+                                                <div class="flex w-full mb-6">
                                                     <template x-if="message.content && !message.image">
-                                                        <div class="flex items-center justify-between px-4 py-2 bg-gray-300 rounded-md align-center messageFromMe" style="max-width: min-content; gap: 1rem;">
+                                                        <div class="flex flex-col items-end px-4 py-1 bg-gray-500 rounded-md" style="max-width: 100%;">
                                                             <p class="text-white" x-text="message.content"></p>
                                                         <div>
-                                                        <span class="inline-block mt-6 text-xs text-gray-400">15:00</span>
+                                                        <span class="inline-block text-xs text-right text-gray-300">15:00</span>
                                                     </template>
 
                                                     <template x-if="!message.content && message.image">
-                                                        <div class="inline-block px-4 py-2 bg-gray-300 rounded-md messageFromMe" style="max-width: 75%;">
-                                                            <img src="./../../../public/storage/BH6zNqahh7eL1pqGYsGE9q4uGYTv8Gcw857FF012.png">
+                                                        <div class="flex flex-col items-end px-1 py-1 bg-gray-500 rounded-md" style="max-width: 75%;">
+                                                            <img class="rounded-md" :src=`storage/uploads/${message.image}` alt="">
                                                         <div>
-                                                        <span class="block mt-6 text-xs text-gray-500">15:00</span>
+                                                        <span class="block mt-2 text-xs text-right text-gray-300">15:00</span>
                                                     </template>
                                                     
                                                     <template x-if="message.content && message.image">
-                                                        <div class="inline-block px-4 py-2 bg-gray-300rounded-md messageFromMe" style="max-width: 75%;">
+                                                        <div class="flex flex-col items-end px-1 py-1 bg-gray-500 rounded-md" style="max-width: 75%;">
                                                             <figure>
-                                                                <img src="{{ url('storage/') }}">
-                                                                <figcaption x-text="message.content"></figcaption>
+                                                                <img class="rounded-md" :src=`storage/uploads/${message.image}` alt="">
+                                                                <figcaption class="mt-2" x-text="message.content"></figcaption>
                                                             </figure>
+                                                            <span class="block mt-2 text-xs text-right text-gray-300">15:00</span>
                                                         </div>
-                                                        <span class="block mt-6 text-xs text-gray-500">15:00</span>
                                                     </template>
                                                 </div>
                                             </template>
 
                                             <template x-if="message.from_user_id === loggedUser.id">
-                                                <div class="w-full mb-3 text-right">
+                                                <div class="flex justify-end w-full mb-6">
                                                     <template x-if="message.content && !message.image">
-                                                        <div class="flex items-center justify-between px-4 py-2 bg-teal-600 rounded-md align-center messageFromMe" style="max-width: min-content; gap: 1rem;">
+                                                        <div class="flex flex-col items-end px-4 py-1 bg-teal-600 rounded-md" style="max-width: 100%;">
                                                             <p class="text-white" x-text="message.content"></p>
                                                         <div>
-                                                        <span class="inline-block mt-6 text-xs text-gray-200">15:00</span>
+                                                        <span class="inline-block text-xs text-right text-gray-200">15:00</span>
                                                     </template>
                                                     <template x-if="!message.content && message.image">
-                                                        <div class="inline-block px-4 py-2 bg-teal-600 rounded-md messageFromMe" style="max-width: 75%;">
-                                                            <img src="./../../../public/storage/uploads/BH6zNqahh7eL1pqGYsGE9q4uGYTv8Gcw857FF012.png">
+                                                        <div class="inline-block px-1 py-1 bg-teal-600 rounded-md messageFromMe" style="max-width: 75%;">
+                                                            <img class="rounded-md" :src=`storage/uploads/${message.image}` alt="">
                                                         <div>
-                                                        <span class="block mt-6 text-xs text-gray-200">15:00</span>
+                                                        <span class="block mt-2 text-xs text-right text-gray-200">15:00</span>
                                                     </template>
                                                     <template x-if="message.content && message.image">
-                                                        <figure class="inline-block px-4 py-2 bg-teal-600 rounded-md messageFromMe" style="max-width: 75%;">
-                                                            <img src="./../../../public/storage/uploads/BH6zNqahh7eL1pqGYsGE9q4uGYTv8Gcw857FF012.png">
-                                                            <figcaption x-text="message.content"></figcaption>
-                                                            <span class="block mt-6 text-xs text-gray-200">15:00</span>
+                                                        <figure class="inline-block px-1 py-1 bg-teal-600 rounded-md messageFromMe" style="max-width: 75%;">
+                                                            <img class="rounded-md" :src=`storage/uploads/${message.image}` alt="">
+                                                            <figcaption class="mt-2 text-left" x-text="message.content"></figcaption>
+                                                            <span class="block text-xs text-right text-gray-200">15:00</span>
                                                         </figure>
                                                     </template>
                                                 </div>
