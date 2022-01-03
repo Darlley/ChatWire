@@ -1346,9 +1346,6 @@ select {
 .border-r {
   border-right-width: 1px;
 }
-.border-dashed {
-  border-style: dashed;
-}
 .border-dotted {
   border-style: dotted;
 }
@@ -1716,13 +1713,13 @@ select {
   --tw-text-opacity: 1;
   color: rgb(220 252 231 / var(--tw-text-opacity));
 }
-.text-blue-700 {
-  --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
-}
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+.text-blue-700 {
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 .text-gray-300 {
   --tw-text-opacity: 1;
